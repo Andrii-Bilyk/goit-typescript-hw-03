@@ -7,11 +7,7 @@
 в якому людина приходить додому. */
 
 class Key {
-    private signature: number;
-
-    constructor() {
-        this.signature = Math.random();
-    }
+    private signature: number = Math.random();
 
     getSignature(): number {
         return this.signature;
@@ -23,10 +19,8 @@ class Key {
 приватному властивості key. Клас Person повинен мати метод getKey, який повертає збережений ключ. */
 
 class Person {
-    private key: Key;
-
-    constructor(key: Key) {
-        this.key = key;
+    
+    constructor(private key: Key) {
     }
 
     getKey(): Key {
@@ -41,13 +35,10 @@ class Person {
  Ваш абстрактний клас House також повинен мати абстрактний метод OpenDoor, який приймає об'єкт класу Key. */
 
 abstract class House {
-    protected door: boolean;
-    protected key: Key;
+    protected door: boolean = false;
     protected tenants: Person [] = [];
 
-    constructor(key: Key) {
-        this.door = false;
-        this.key = key;
+    constructor(protected key: Key) {
     }
     
     comeIn(person: Person): void {
